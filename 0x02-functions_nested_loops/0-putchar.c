@@ -1,15 +1,14 @@
 #include <stdio.h>
 
 /**
- * 
- * main - entry point
+ * main - Entry point
  *
  * Returns 0
  *
- * */ 
+ **/
 
 int main(void)
 {
-	printf("_putchar");
+	printf("_putchar\n");
 	return (0);
 }
