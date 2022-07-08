@@ -41,8 +41,14 @@ void fizz_buzz(void)
 	printf("\n");
 }
 
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
+
 int main(void)
 {
-        fizz_buzz();
-        return (0);
+	fizz_buzz();
+	return (0);
 }
