@@ -2,7 +2,7 @@
 
 /**
  * rev_string - reverses input string
- * @s - The string that is to be reversed
+ * @s: The string that is to be reversed
  *
  * Reurn: nothing
  */
