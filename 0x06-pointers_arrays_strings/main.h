@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+char *leet(char *);
 char *cap_string(char *s);
 void reverse_array(int *a, int n);
 char *string_toupper(char *);
