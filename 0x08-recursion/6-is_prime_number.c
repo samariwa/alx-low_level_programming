@@ -16,7 +16,7 @@ int is_prime_number(int n)
  * _prime_number_helper - recursivley tests if integer is a prime number
  * @min: minumum number used to test if the integer is prime
  * @num: integer to be tested if prime
- * 
+ *
  * Return: 1 if number is prime, else 0
  */
 int _prime_number_helper(int min, int num)
