@@ -12,7 +12,7 @@ int change_compute(int value, int num);
  */
 int main(int argc, char *argv[])
 {
-	int value = atoi(argv[1]);
+	int value = atoi(*(argv + 1));
 
 	if (argc > 1)
 	{
@@ -46,7 +46,7 @@ int change_compute(int value, int num)
 	{
 		if (value >= coins[i])
 		{
-			value -= value % coins[i];
+			value = value - (value % coins[i]);
 			num++;
 		}
 	}
