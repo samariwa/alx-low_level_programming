@@ -18,11 +18,19 @@ int **alloc_grid(int width, int height)
 		return (NULL);
 	}
 	temp = malloc(height * sizeof(int *));
-
+	if (temp == NULL)
+	{
+		printf("Not enough memory left!\n");
+		return (NULL);
+	}
 	for (i = 0; i < height; i++)
 	{
 		temp[i] = malloc(width * sizeof(int));
-
+		if (temp[i]  == NULL)
+		{
+			printf("Not enough memory left!\n");
+			return (NULL);
+		}
 		for (j = 0; j < width; j++)
 		{
 			temp[i][j] = 0;

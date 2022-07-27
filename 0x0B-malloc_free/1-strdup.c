@@ -20,6 +20,10 @@ char *_strdup(char *str)
 			j++;
 		}
 		temp = malloc(sizeof(char) * j + 1);
+		if (temp == NULL)
+		{
+			printf("Not enough memory left!\n");
+		}
 		while (str[i] != '\0')
 		{
 			temp[i] = str[i];

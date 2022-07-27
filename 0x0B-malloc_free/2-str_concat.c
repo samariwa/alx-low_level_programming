@@ -20,6 +20,10 @@ char *str_concat(char *s1, char *s2)
 	if (s1 != NULL && s2 != NULL)
 	{
 		temp = malloc(sizeof(char) * (i + j) + 1);
+		if (temp == NULL)
+		{
+			printf("Not enough memory left!\n");
+		}
 		for (k = 0; k < i; k++)
 		{
 			temp[k] = s1[k];
