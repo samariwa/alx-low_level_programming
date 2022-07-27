@@ -22,7 +22,7 @@ char *str_concat(char *s1, char *s2)
 		temp = malloc(sizeof(char) * (i + j) + 1);
 		if (temp == NULL)
 		{
-			printf("Not enough memory left!\n");
+			return (NULL);
 		}
 		for (k = 0; k < i; k++)
 		{
