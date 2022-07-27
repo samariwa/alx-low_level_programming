@@ -10,7 +10,7 @@
  */
 int **alloc_grid(int width, int height)
 {
-	int i, j;
+	int i, j, k;
 	int **temp;
 
 	if (width <= 0 || height <= 0)
@@ -21,6 +21,7 @@ int **alloc_grid(int width, int height)
 	if (temp == NULL)
 	{
 		printf("Not enough memory left!\n");
+		free(temp);
 		return (NULL);
 	}
 	for (i = 0; i < height; i++)
@@ -29,6 +30,10 @@ int **alloc_grid(int width, int height)
 		if (temp[i]  == NULL)
 		{
 			printf("Not enough memory left!\n");
+			for (k = 0; k <= i; k++)
+			{
+				free(temp[k]);
+			}
 			return (NULL);
 		}
 		for (j = 0; j < width; j++)
