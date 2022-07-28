@@ -27,6 +27,8 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 	}
 
+	*temp = 0;
+
 	return (temp);
 
 }
