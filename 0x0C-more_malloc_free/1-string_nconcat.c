@@ -19,7 +19,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		i++;
 	}
 
-	sum = n + i;
+	sum = n + i + 1;
 	num = n + 0;
 	temp = malloc(sum * sizeof(char));
 
@@ -41,6 +41,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		j++;
 		k++;
 	}
+	temp[j] = '\0';
 
 	return (temp);
 }
