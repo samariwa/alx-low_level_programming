@@ -10,13 +10,21 @@ int change_compute(int value, int num);
  *
  * Return: 0 if the number of parameters is one, else 0
  */
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	int value = atoi(*(argv + 1));
+	int value;
 
 	if (argc > 1)
 	{
-		printf("%d\n", change_compute(value, 0));
+		value = atoi(argv[1]);
+		if (value < 0)
+		{
+			printf("%d\n", 0);
+		}
+		else
+		{
+			printf("%d\n", change_compute(value, 0));
+		}
 	}
 	else
 	{
