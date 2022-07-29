@@ -32,12 +32,13 @@ int main(int argc, char *argv[])
  * @value: The value of the change
  * @num: number of coins obtained so far
  *
- * Return: Number of coina to be obtained
+ * Return: Number of coins to be obtained
  */
 int change_compute(int value, int num)
 {
-	int coins[] = {1, 2, 5, 10, 25};
+	int coins[] = {25, 10, 5, 2, 1};
 	int i;
+
 	if (value == 0)
 	{
 		return (num);
@@ -46,9 +47,10 @@ int change_compute(int value, int num)
 	{
 		if (value >= coins[i])
 		{
-			value = value - (value % coins[i]);
-			num++;
+			num += value / coins[i];
+			value = value % coins[i];
 		}
 	}
-	return(change_compute(value, num));
+
+	return (change_compute(value, num));
 }
