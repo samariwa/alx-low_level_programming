@@ -43,7 +43,7 @@ void print_all(const char * const format, ...)
 					printf("%f\n", va_arg(args, double));
 					break;
 				default:
-					printf("Print %s\n", "Not available");	
+					printf("Print %s\n", "Not available");
 				}
 			}
 			j++;
