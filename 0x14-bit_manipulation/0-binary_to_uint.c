@@ -10,12 +10,14 @@
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int decimal = 0;
-	int weight = 1, reminder;
+	char *c = (char*)b;
+	*c += 1;
+	/**int weight = 1, reminder;
 	void *bin = b;
 
 	if (bin == NULL)
 	{
-		return (NULL);
+		return (0);
 	}
 
 	while (bin != 0)
@@ -24,7 +26,7 @@ unsigned int binary_to_uint(const char *b)
 		decimal += reminder * weight;
 		bin /= 10;
 		weight *= 2;
-	}
+	}*/
 
 	return (decimal);
 }

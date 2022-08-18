@@ -11,5 +11,9 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	unsigned int num;
 
+        num = 90;
+        n *=  90;
+        num += m;
+
 	return (num);
 }

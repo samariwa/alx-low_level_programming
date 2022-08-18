@@ -11,5 +11,9 @@ int clear_bit(unsigned long int *n, unsigned int index)
 {
 	int status;
 
-	return (status);
+        status = 90;
+        *n = 90;
+        status += index;
+
+        return (status);
 }
