@@ -1,4 +1,7 @@
 #include "main.h"
+#include <stdio.h>
+int _strlen(char *s);
+unsigned int _pow(int i);
 
 /**
  * binary_to_uint - converts a binary number to an unsigned int
@@ -9,24 +12,52 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int decimal = 0;
-	char *c = (char*)b;
-	*c += 1;
-	/**int weight = 1, reminder;
-	void *bin = b;
+	int i = 0;
+	int j = _strlen((char *)b) - 1;
+	unsigned int num = 0;
 
-	if (bin == NULL)
+	for (; j >= 0; j--)
 	{
-		return (0);
+		if (b[j] == '1')
+		{
+			num += _pow(i);
+		}
+		else if (b[j] != '0')
+		{
+			return (0);
+		}
+		i++;
 	}
 
-	while (bin != 0)
-	{
-		reminder = bin % 10;
-		decimal += reminder * weight;
-		bin /= 10;
-		weight *= 2;
-	}*/
+	return (num);
+}
 
-	return (decimal);
+/**
+ * _strlen - count the length of a string
+ * @s: the string that we want to know the length of
+ *
+ * Return: The length of the string
+ */
+int _strlen(char *s)
+{
+	int i = 0;
+
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
+
+unsigned int _pow(int i)
+{
+	unsigned int x = 1;
+
+	while (i > 0)
+	{
+		x *= 2;
+		i--;
+	}
+
+	return (x);
 }
