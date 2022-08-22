@@ -25,6 +25,11 @@ void print_binary(unsigned long int n)
 		limit *= 2;
 	}
 
+	if (limit > n)
+	{
+		limit *= 0.5;
+	}
+
 	while (limit > 0)
 	{
 		if (limit > n)
