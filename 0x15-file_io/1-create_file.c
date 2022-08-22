@@ -3,7 +3,7 @@
 /**
  * create_file - creates a file
  * @filename: the file which should be read
- * @content: a null terminating string to write to the file
+ * @text_content: a null terminating string to write to the file
  * Description: if the content is NULL, an empty file is created
  *
  * Return: 1 on success, else -1
@@ -33,6 +33,12 @@ int create_file(const char *filename, char *text_content)
 	return (1);
 }
 
+/**
+ * _strlen - count the length of a string
+ * @s: the string that we want to know the length of
+ *
+ * Return: The length of the string
+ */
 int _strlen(char *s)
 {
 	int i = 0;
