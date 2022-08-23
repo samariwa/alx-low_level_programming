@@ -1,41 +1,65 @@
 #include "main.h"
 #include<stdio.h>
+
 /**
- * cp_file_content - copies content from one file to another
+ * main - copies content from one file to another
  * @from_file: the file which should be copied from
  * @to_file: the file which should be copied to
  * Description: if the file doesnt exist, a new one is created and text copied
  * if it does exist and has text, text is appended,
  * copying is done 1024 bytes at a time using a buffer
  *
- * Return: 1 on success,
+ * Return: Nothing
  */
-int cp(const char *file_from, const char *file_to)
+int main(int argc, char **argv)
 {
-	int fd1, fd2,result;
-	char *buffer;
-	size_t count = _strlen(text_content);
+	int fd1, fd2,result, buffer_size = 1024;
+	char *file_from, *file_to, *buffer;
+	/*size_t count = _strlen(text_content);*/
 
-	if (file_file == NULL)
+	if (argc != 3)
 	{
-		printf("Error: Can\'t read from file %s\n", from_file);
+		exit(97);
+	}
+	file_from = argv[1];
+	file_to = argv[2];
+	if (file_from == NULL)
+	{
+		printf("Error: Can\'t read from file %s\n", file_from);
 		exit(98);
 	}
 
+	buffer = malloc(buffer_size);
+	if (buffer == NULL)
+	{
+		exit(1);
+	}
 
+	fd1 = open(file_from, O_RDONLY);
 
-	fd1 = open(file_to, O_CREAT | O_RDWR, 0600);
-
-	result = write(fd1, text_content, count);
+	result = read(fd1, buffer, buffer_size);
 
 	if (result <= 0)
 	{
 		write(1, "Opening failed", 15);
-                printf("Error: Can\'t write to %s\n", to_file);
-                exit(99);
+		printf("Error: Can\'t read from file %s\n", file_from);
+		exit(98);
 	}
 
 	close(fd1);
+
+	fd2 = open(file_to, O_CREAT | O_WRONLY | O_APPEND, 0600);
+
+	result = write(fd2, buffer, buffer_size);
+
+	if (result <= 0)
+	{
+		write(1, "Opening failed", 15);
+                printf("Error: Can\'t write to %s\n", file_to);
+                exit(99);
+	}
+
+	close(fd2);
 
 	return (1);
 }
