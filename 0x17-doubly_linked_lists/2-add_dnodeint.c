@@ -23,6 +23,12 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 	return (*head);
 }
 
+/**
+ * get_new_node - creates a new node
+ * @n: node's integer value
+ * 
+ * Return: The new node
+ */
 dlistint_t *get_new_node(const int n)
 {
 	dlistint_t *new_node = (dlistint_t*)malloc(sizeof(dlistint_t));
