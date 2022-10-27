@@ -12,32 +12,38 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	hash_node_t *temp = malloc(sizeof(hash_node_t));
-	
-	if (temp == NULL)
-	{
-		free(temp);
-		return (0);
-	}
+	hash_node_t *node = malloc(sizeof(hash_node_t)), *temp;
 
-	if (key == NULL || value == NULL)
+	if (node == NULL || key == NULL || value == NULL)
 	{
+		free(node);
 		return (0);
 	}
 
 	index = hash_djb2((unsigned char *)key) % ht->size;
-	temp->key = strdup(key);
-	temp->value = strdup(value);
+	node->key = strdup(key);
+	node->value = strdup(value);
 
 	if (ht->array[index] == NULL)
 	{
-		temp->next = NULL;
-		ht->array[index] = temp;
+		node->next = NULL;
+		ht->array[index] = node;
 	}
 	else
 	{
-		temp->next = ht->array[index];
-        	ht->array[index] = temp;
+		temp = malloc(sizeof(hash_node_t));
+		if (temp == NULL)
+		{
+			free(temp);
+			return (0);
+		}
+		temp = ht->array[index];
+		while (temp->next != NULL)
+		{
+			temp = temp->next;
+		}
+		temp->next = node;
+		free(temp);
 	}
 
 	return (1);
