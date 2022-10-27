@@ -23,10 +23,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	index = hash_djb2((unsigned char *)key) % ht->size;
 	node->key = strdup(key);
 	node->value = strdup(value);
+	node->next = NULL;
 
 	if (ht->array[index] == NULL)
 	{
-		node->next = NULL;
 		ht->array[index] = node;
 	}
 	else
