@@ -21,6 +21,15 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 
 	index = hash_djb2((unsigned char *)key) % ht->size;
+	for (temp = ht->array[index]; temp != NULL; temp = temp->next)
+	{
+		if(strcmp(temp->key, key) == 0)
+		{
+			free(temp->value);
+			temp->value = strdup(value);
+			return (1);
+		}
+	}
 	node->key = strdup(key);
 	node->value = strdup(value);
 	node->next = NULL;
